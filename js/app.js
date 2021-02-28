@@ -59,12 +59,26 @@ class UI {
     if(expenseValue==='' || amountValue==='' || amountValue<0 ){ //If the expense is negative or the name of the expense is empty or the value of the expense is empty
       this.expenseFeedback.classList.add("showItem");
       this.expenseFeedback.innerHTML=`<p> The value is not correct please verify it</p>`;
-    }
+    
   const self=this;
   setTimeout(function(){
     self.expenseFeedback.classList.remove("showItem");
   },4000);
-
+}
+    else{
+      let amount= parseInt(amountInput)
+      this.expenseInput='';
+      this.amountInput='';
+      let expense = {
+        id:this.itemID,
+        title:expenseValue,
+        amount:amount,
+      }
+      this.itemId++ //I add one id everytime the user add an expense
+      this.itemList.push(expense)//then I add it to the empty array
+      this.addExpense(expense)
+      //we have to show balance
+    }
   }
   totalExpense(){
     let total = 400;
