@@ -4,10 +4,11 @@
   --mainGreen: #317b22;
   --mainRed: #b80c09;
   --mainBlue: #05668d;
+  --mainVerde:  #5CDB95;
 }
 
 body {
-  background: var(--mainWhite);
+  background: var(--mainVerde);
   color: var(--mainDark);
 }
 .budget-feedback,
@@ -137,9 +138,6 @@ body {
 }
 nav{
   background:#05366B;
-}
-.container-fluid{
-  background-color: #5CDB95;
 }
 .love {
   background: url(https://media1.giphy.com/media/CKlafeh1NAxz35KTq4/giphy.gif?cid=ecf05e47pjt4wpwse5meeloq1wk1gnyox4xj860qd61kg7ad&rid=giphy.gif);
