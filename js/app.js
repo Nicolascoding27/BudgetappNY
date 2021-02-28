@@ -56,7 +56,8 @@ class UI {
   submitExpenseForm(){
     const expenseValue=this.expenseInput.value;
     const amountValue=this.amountInput.value;
-    if(expenseValue==='' || amountValue==='' || amountValue<0 ){ //If the expense is negative or the name of the expense is empty or the value of the expense is empty
+    if(expenseValue==='' || amountValue==='' || amountValue<0 )
+    { //If the expense is negative or the name of the expense is empty or the value of the expense is empty
       this.expenseFeedback.classList.add("showItem");
       this.expenseFeedback.innerHTML=`<p> The value is not correct please verify it</p>`;
     
@@ -64,45 +65,42 @@ class UI {
   setTimeout(function(){
     self.expenseFeedback.classList.remove("showItem");
   },4000);
-}
-    else{
-      let amount= parseInt(amountInput)
-      this.expenseInput='';
-      this.amountInput='';
+} else{
+      let amount= parseInt(amountValue);
+      this.expenseInput.value='';
+      this.amountInput.value='';
       let expense = {
         id:this.itemID,
         title:expenseValue,
-        amount:amount,
-      }
-      this.itemId++ //I add one id everytime the user add an expense
-      this.itemList.push(expense)//then I add it to the empty array
-      this.addExpense(expense)
+        amount:amount
+      };
+      this.itemId++; //I add one id everytime the user add an expense
+      this.itemList.push(expense);//then I add it to the empty array
+      this.addExpense(expense);
       //we have to show balance
     }
   }
   //add expense method
   addExpense(expense){
-      const div= documment.createElement('div');
-      div.classList.add('expense'); //add the class, this class is in index.html
-      div.innerHTML=`
-      <div class="expense-item d-flex justify-content-between align-items-baseline">
-
-         <h6 class="expense-title mb-0 text-uppercase list-item">- ${expense.title}</h6>
+    //div creation 
+      const div= document.createElement("div");
+      div.classList.add("expense"); //add the class, this class is in index.html
+      div.innerHTML=`<div class="expense-item d-flex justify-content-between align-items-baseline">
+        <h6 class="expense-title mb-0 text-uppercase list-item">-${
+          expense.title
+        }</h6>
          <h5 class="expense-amount mb-0 list-item">${expense.amount}</h5>
-
-         <div class="expense-icons list-item">
-
+       <div class="expense-icons list-item">
           <a href="#" class="edit-icon mx-2" data-id="${expense.id}">
            <i class="fas fa-edit"></i>
           </a>
           <a href="#" class="delete-icon" data-id="${expense.id}">
            <i class="fas fa-trash"></i>
-          </a>
-         </div>
+           </a>
+           </div>
         </div>
-        `;
-        this.expenseList.appendChild(div);
-        
+ `;
+        this.expenseList.appendChild(div);//grab the expense and put it as a child  
   }
   totalExpense(){
     let total = 400;
