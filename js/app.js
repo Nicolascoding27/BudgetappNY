@@ -35,7 +35,7 @@ class UI {
   }
   showBalance(){ //we are creating the method of show balance
     const expense=this.totalExpense();//method inside this method not ui 
-    const total=parseInt(this.budgetAmount.textContent) - expense //the value is a string 
+    const total=parseInt(this.budgetAmount.textContent) - expense; //the value is a string 
     this.balanceAmount.textContent=total;
     if (total<0){
       this.balance.classList.remove("showGreen","showBlack");
@@ -67,16 +67,17 @@ class UI {
   },4000);
 } else{
       let amount= parseInt(amountValue);
-      this.expenseInput.value='';
+      this.expenseInput.value='';//we need to select the value
       this.amountInput.value='';
       let expense = {
         id:this.itemID,
         title:expenseValue,
         amount:amount
       };
-      this.itemId++; //I add one id everytime the user add an expense
+      this.itemID++; //I add one id everytime the user add an expense
       this.itemList.push(expense);//then I add it to the empty array
       this.addExpense(expense);
+      this.showBalance();
       //we have to show balance
     }
   }
@@ -102,8 +103,16 @@ class UI {
  `;
         this.expenseList.appendChild(div);//grab the expense and put it as a child  
   }
-  totalExpense(){
-    let total = 400;
+  totalExpense(){ //we use it in show balance
+    let total = 0;
+    if(this.itemList.length>0){
+    total=this.itemList.reduce(function(acc,curr){
+      console.log( `Total is ${acc} and the current value is ${curr.amount} and the name of this expense is ${curr.title}`);
+      acc+=curr.amount;
+      return acc;//total that is gonna be return in every iteration 
+    },0);
+    }
+    this.expenseAmount.textContent=total;
     return total;
   }
 }
