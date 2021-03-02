@@ -7,9 +7,12 @@
   --mainVerde:  #5CDB95;
 }
 
+#main{
+  font-family: 'Poppins', sans-serif;
+}
 body {
   background: var(--mainVerde);
-  color: var(--mainDark);
+  color: var(--mainWhite);
 }
 .budget-feedback,
 .expense-feedback {
