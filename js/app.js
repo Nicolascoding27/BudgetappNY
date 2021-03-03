@@ -115,6 +115,16 @@ class UI {
     this.expenseAmount.textContent=total;
     return total;
   }
+  editExpense(element){
+    let id=parseInt(element.dataset.id);
+    let parent=element.parentElment.parentElment.parentElment
+
+  }
+  
+  deleteExpense(element){
+
+  }
+
 }
 function eventListeners(){
   const budgetForm= document.getElementById('budget-form');
@@ -134,8 +144,13 @@ function eventListeners(){
   })
   //Expense click
   expenseList.addEventListener('click',function(event){
-
-  })
+    if(event.target.parentElment.classList.contains('edit-icon')){
+      ui.editExpense(event.target.parentElment)
+    }
+    else if (event.target.parentElment.classList.contains('delete-icon')){
+       ui.deleteExpense(event.target.parentElment)
+    }
+  });
 }
 document.addEventListener('DOMContentLoaded',function(){
   eventListeners()
