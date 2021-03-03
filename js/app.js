@@ -118,7 +118,13 @@ class UI {
   editExpense(element){
     let id=parseInt(element.dataset.id);
     let parent=element.parentElment.parentElment.parentElment
-
+      //remove from the DOM 
+    this.expenseList.removeChild(parent);
+    //now remove from the list 
+    let expense=this.itemList.filter(function(item){
+      return item.id ===id 
+    })
+  //remove from list 
   }
   
   deleteExpense(element){
