@@ -100,7 +100,7 @@ class UI {
            </a>
            </div>
         </div>
- `;
+        `;
         this.expenseList.appendChild(div);//grab the expense and put it as a child  
   }
   totalExpense(){ //we use it in show balance
