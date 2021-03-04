@@ -117,7 +117,7 @@ class UI {
   }
   editExpense(element){
     let id=parseInt(element.dataset.id);
-    let parent=element.parentElment.parentElment.parentElment
+    let parent=element.parentElement.parentElement.parentElement;
       //remove from the DOM 
     this.expenseList.removeChild(parent);
     //now remove from the list 
@@ -136,7 +136,7 @@ class UI {
   
   deleteExpense(element){
     let id=parseInt(element.dataset.id);
-    let parent=element.parentElment.parentElment.parentElment
+    let parent=element.parentElement.parentElement.parentElement;
       //remove from the DOM 
     this.expenseList.removeChild(parent);
     //now remove from the lit again 
@@ -172,12 +172,11 @@ function eventListeners(){
     ui.submitExpenseForm();
   })
   //Expense click
-  expenseList.addEventListener('click',function(event){
-    if(event.target.parentElment.classList.contains('edit-icon')){
-      ui.editExpense(event.target.parentElment)
-    }
-    else if (event.target.parentElment.classList.contains('delete-icon')){
-       ui.deleteExpense(event.target.parentElment)
+  expenseList.addEventListener("click", function() {
+    if (event.target.parentElement.classList.contains("edit-icon")) {
+      ui.editExpense(event.target.parentElement);
+    } else if (event.target.parentElement.classList.contains("delete-icon")) {
+      ui.deleteExpense(event.target.parentElement);
     }
   });
 }
