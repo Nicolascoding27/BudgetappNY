@@ -6,6 +6,9 @@
   --mainBlue: #05668d;
   --mainVerde:  #5CDB95;
 }
+.container-fluid{
+  color: var(--mainDark);
+}
 
 #main{
   font-family: 'Poppins', sans-serif;
