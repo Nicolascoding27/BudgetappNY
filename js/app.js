@@ -122,12 +122,35 @@ class UI {
     this.expenseList.removeChild(parent);
     //now remove from the list 
     let expense=this.itemList.filter(function(item){
-      return item.id ===id 
+      return item.id ===id; //return if the id is the same 
     })
+    this.expenseInput.value =expense[0].title
+    this.amountInput.value= expense[0].amount
   //remove from list 
+   let tempList=this.itemList.filter(function(item){
+    return item.id !==id//return if the is is different 
+  })
+  this.itemList=tempList;//the item list does not exist anymore
+  this.showBalance();//show the balance again after clicking the edit icon
   }
   
   deleteExpense(element){
+    let id=parseInt(element.dataset.id);
+    let parent=element.parentElment.parentElment.parentElment
+      //remove from the DOM 
+    this.expenseList.removeChild(parent);
+    //now remove from the lit again 
+    let expense=this.itemList.filter(function(item){
+      return item.id ===id; //return if the id is the same 
+    })
+    this.expenseInput.value =expense[0].title
+    this.amountInput.value= expense[0].amount
+  //remove from list 
+   let tempList=this.itemList.filter(function(item){
+    return item.id !==id//return if the is is different 
+  })
+  this.itemList=tempList;//the item list does not exist anymore
+  this.showBalance();//show th
 
   }
 
