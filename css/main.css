@@ -12,10 +12,11 @@
 
 #main{
   font-family: 'Poppins', sans-serif;
+  color: var(--mainDark);
 }
 body {
   background: var(--mainVerde);
-  color: var(--mainWhite);
+  color: var(--mainDark);
 }
 .budget-feedback,
 .expense-feedback {
@@ -26,6 +27,7 @@ body {
   border: 0.15rem solid var(--mainGreen);
   padding: 1rem;
   border-radius: 0.25rem;
+  color: var(--mainDark);
 }
 .expense-form {
   border: 0.15rem solid var(--mainRed);
@@ -153,4 +155,8 @@ nav{
   color: transparent;
   font-size: 132px;
   text-align: center;
+}
+
+*{
+  color:var(--mainDark); imo
 }
