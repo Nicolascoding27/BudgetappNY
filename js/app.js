@@ -107,7 +107,7 @@ class UI {
     let total = 0;
     if(this.itemList.length>0){
     total=this.itemList.reduce(function(acc,curr){
-      console.log( `Total is ${acc} and the current value is ${curr.amount} and the name of this expense is ${curr.title}`);
+      // console.log( `Total is ${acc} and the current value is ${curr.amount} and the name of this expense is ${curr.title}`);
       acc+=curr.amount;
       return acc;//total that is gonna be return in every iteration 
     },0);
